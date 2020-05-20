@@ -1,0 +1,29 @@
+NandPro v3.0a by Tiros
+
+
+Useage:
+
+To invoke Nand SPI flasher use:
+NandPro dev: -r# Filename (HexStartBlock HexBlockCount)	->Read
+NandPro dev: -w# Filename (HexStartBlock HexBlockCount)	->Write
+NandPro dev: -e# (HexStartBlock HexBlockCount)		->Erase
+
+dev: Is hardware interface usb: or lpt:
+dev: Can also be a filename:, to be used as a 'Virtual Nand Device'
+     Virtual device config can be forced, by appending :HexConfigValue
+# Is nand size (16, 64, 256, 512) in MegaBytes
+HexBlocks are optional range limits, default is entire device
+-r# Read saving file RAW (with SPARE)
+-R# Read saving file without SPARE
+!r# Read saving only the SPARE data
+-w# Write RAW (with SPARE) file
++w# Write RAW (with SPARE) file, init SPARE, block numbers, ECC
+@w# Write RAW (with SPARE) file, init block numbers, ECC
+*w# Write RAW (with SPARE) file, init ECC
++W# Write while ADDING SPARE from file without SPARE
+
+To invoke Xilinx xsvf flasher use:
+NandPro xsvf: XsvfInputFilename.xsvf
+
+To invoke usb post monitor use:
+NandPro post: PostLogFileName.txt
